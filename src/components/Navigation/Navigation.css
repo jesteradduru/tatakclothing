@@ -1,0 +1,9 @@
+@font-face {
+  font-family: Historia;
+  src: url("TheHistoriaDemo.ttf");
+}
+
+.logo {
+  font-family: Historia;
+  font-size: 2em;
+}
