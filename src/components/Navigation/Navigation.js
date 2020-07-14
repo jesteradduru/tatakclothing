@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, NavItem, NavLink, Button } from "reactstrap";
+import { Navbar, Nav, NavItem, Button } from "reactstrap";
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -14,11 +14,14 @@ const Navigation = () => {
         </Link>
         <Nav className="ml-auto">
           <NavItem>
-            <NavLink>
-              <Link to="/cart">
-                <FontAwesomeIcon icon={faShoppingCart} color="#777" />
-              </Link>
-            </NavLink>
+            <Link to="/notifications" className="nav-link">
+              Notifications
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/cart" className="nav-link">
+              <FontAwesomeIcon icon={faShoppingCart} color="#777" />
+            </Link>
           </NavItem>
           <NavItem>
             <Link to="/login">

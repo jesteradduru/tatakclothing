@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Card,
   CardImg,
   CardBody,
   CardTitle,
@@ -10,11 +9,11 @@ import {
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
-
+import { Link } from "react-router-dom";
 const Product = ({ imgSource, name, price, description }) => {
   return (
     <div className="col-md-3 col-sm-4 col-6 mt-4">
-      <Card style={{ cursor: "pointer" }} className="shadow">
+      <Link to="/productdetails/1" className="card shadow">
         <CardImg top width="100%" src={imgSource} alt="Card image cap" />
         <CardBody>
           <CardTitle className="text-primary font-weight-bold">
@@ -24,8 +23,8 @@ const Product = ({ imgSource, name, price, description }) => {
           <CardText className="font-weight-bold text-danger">
             ₱{price}{" "}
           </CardText>
-          <Button color="success" size="md" block className="mt-2">
-            Add to Cart
+          <Button color="success" size="sm" block className="mt-2">
+            View Product
             <FontAwesomeIcon
               icon={faCartPlus}
               className="ml-2"
@@ -33,7 +32,7 @@ const Product = ({ imgSource, name, price, description }) => {
             ></FontAwesomeIcon>
           </Button>
         </CardBody>
-      </Card>
+      </Link>
     </div>
   );
 };

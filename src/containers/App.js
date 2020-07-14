@@ -6,6 +6,8 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import Cart from "../components/Cart/Cart";
 import Controls from "./Controls";
+import Admin from "./Admin";
+import ProductDetails from "../components/ProductDetails/ProductDetails";
 
 const App = () => {
   return (
@@ -19,15 +21,11 @@ const App = () => {
               <ProductLists />
             </div>
           </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
+          <Route path="/login" children={<Login />} />
+          <Route path="/register" children={<Register />} />
+          <Route path="/cart" children={<Cart />} />
+          <Route path="/admin" children={<Admin />} />
+          <Route path="/productdetails/:id" children={<ProductDetails />} />
         </Switch>
       </div>
     </Router>

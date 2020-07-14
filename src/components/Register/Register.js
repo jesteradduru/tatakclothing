@@ -4,7 +4,7 @@ const Register = () => {
   return (
     <Card
       className="mx-auto py-5 px-4 shadow mt-md-5 my-5"
-      style={{ maxWidth: "370px" }}
+      style={{ maxWidth: "330px" }}
     >
       <h1 className="text-center text-primary">Register</h1>
       <hr />

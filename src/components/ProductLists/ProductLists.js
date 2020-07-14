@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "../Product/Product";
-
 const ProductLists = () => {
   return (
     <div className="row">
