@@ -14,12 +14,13 @@ const ProductDetails = () => {
           <img
             src="https://robohash.org/123"
             className="img-fluid mx-auto d-block"
+            alt="Product"
           />
         </Col>
         <Col md="8">
           <div className="d-flex flex-column justify-content-between h-100">
             <div>
-              <h3>GGHL</h3>
+              <h3>GGHL {id}</h3>
 
               <p>God is greater than Highs and Lows.</p>
 

@@ -8,28 +8,43 @@ import Cart from "../components/Cart/Cart";
 import Controls from "./Controls";
 import Admin from "./Admin";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
+import { connect } from "react-redux";
 
-const App = () => {
+const maptStateToProps = (state) => ({
+  isSignedIn: state.user.isSignedIn,
+  accessLevel: state.user.accessLevel,
+  user: state.user.user,
+});
+
+const App = ({ isSignedIn, accessLevel }) => {
   return (
     <Router className="container-fluid">
       <div>
-        <Navigation />
         <Switch>
           <Route exact path="/">
+            <Navigation />
             <div className="container">
               <Controls />
               <ProductLists />
             </div>
           </Route>
-          <Route path="/login" children={<Login />} />
-          <Route path="/register" children={<Register />} />
-          <Route path="/cart" children={<Cart />} />
-          <Route path="/admin" children={<Admin />} />
-          <Route path="/productdetails/:id" children={<ProductDetails />} />
+          <Route path="/login" children={[<Navigation />, <Login />]} />
+          <Route path="/register" children={[<Navigation />, <Register />]} />
+          <Route path="/cart" children={[<Navigation />, <Cart />]} />
+          <Route
+            path="/admin"
+            children={
+              <Admin isSignedIn={isSignedIn} accessLevel={accessLevel} />
+            }
+          />
+          <Route
+            path="/productdetails/:id"
+            children={[<Navigation />, <ProductDetails />]}
+          />
         </Switch>
       </div>
     </Router>
   );
 };
 
-export default App;
+export default connect(maptStateToProps)(App);
