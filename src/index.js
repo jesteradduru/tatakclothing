@@ -4,10 +4,11 @@ import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import { user } from "./reducers";
-
-const store = createStore(combineReducers({ user }));
+import { createLogger } from "redux-logger";
+const logger = createLogger();
+const store = createStore(combineReducers({ user }), applyMiddleware(logger));
 
 ReactDOM.render(
   <Provider store={store}>

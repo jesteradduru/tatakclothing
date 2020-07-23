@@ -10,10 +10,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-const Product = ({ imgSource, name, price, description }) => {
+const Product = ({ imgSource, name, price, description, url }) => {
   return (
     <div className="col-md-3 col-sm-4 col-6 mt-4">
-      <Link to="/productdetails/1" className="card shadow">
+      <Link to={`${url}/${name}`} className="card shadow">
         <CardImg top width="100%" src={imgSource} alt="Card image cap" />
         <CardBody>
           <CardTitle className="text-primary font-weight-bold">

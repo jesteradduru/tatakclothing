@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "../Product/Product";
-const ProductLists = () => {
+const ProductLists = ({ url }) => {
   return (
     <div className="row">
       <Product
@@ -8,6 +8,7 @@ const ProductLists = () => {
         name="GGHL"
         price="280"
         description="God is greater than Highs and Lows"
+        url={url}
       />
     </div>
   );
