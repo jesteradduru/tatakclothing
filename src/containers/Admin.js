@@ -6,6 +6,7 @@ import Controls from "./Controls";
 import { Link } from "react-router-dom";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
+import AddProduct from "../components/AddProduct/AddProduct";
 const Admin = ({ isSignedIn, accessLevel }) => {
   let match = useRouteMatch();
   if (isSignedIn) {
@@ -17,19 +18,27 @@ const Admin = ({ isSignedIn, accessLevel }) => {
             <Route exact path={match.path}>
               <h1 className="text-center mt-5">Welcome to Admin Panel</h1>
             </Route>
-            <Route path={`${match.path}/products`}>
+            <Route exact path={`${match.path}/products`}>
               <Controls accessLevel={accessLevel} />
               <ProductLists
                 accessLevel={accessLevel}
-                url="/admin/product/productdetails"
+                url="/admin/products/productdetails"
               />
             </Route>
             <Route path={`${match.path}/orders`}>
               <h1>Orders</h1>
             </Route>
-            <Route path="/admin/product/productdetails/:productname">
+            <Route exact path="/admin/products/productdetails/:productname">
               <ProductDetails accessLevel={accessLevel} />
             </Route>
+            <Route
+              path={`/admin/products/productdetails/:productname/edit`}
+              children={<AddProduct />}
+            />
+            <Route
+              path={`/admin/products/addProduct`}
+              children={<AddProduct />}
+            />
           </Switch>
         </div>
       </div>

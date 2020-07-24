@@ -1,1 +1,0 @@
-export const CHANGE_USER_ACTION = "CHANGE_USER_ACTION";
